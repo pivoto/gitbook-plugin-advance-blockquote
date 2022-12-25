@@ -1,0 +1,165 @@
+{
+  "name": "gitbook-plugin-advance-blockquote",
+  "version": "1.0.2",
+  "description": "GitBook plugin",
+  "author": "Qt",
+  "license": "MIT",
+  "keywords": [
+    "gitbook",
+    "plugin",
+    "blockquotes",
+    "hint"
+  ],
+  "engines": {
+    "gitbook": ">=2.0.0"
+  },
+  "main": "index.js",
+  "files": [
+    "/bin",
+    "/docs",
+    "/dist",
+    "LICENSE",
+    "README.md",
+    "package.json",
+    "index.js"
+  ],
+  "scripts": {
+    "clean": "rimraf dist/*",
+    "build": "rollup -c rollup.config.js",
+    "prepare": "npm run clean && npm run build",
+    "pub": "npm publish --access=public --registry=https://registry.npmjs.org/",
+    "pub:x": "npm run x && npm run pub",
+    "pub:y": "npm run y && npm run pub",
+    "pub:z": "npm run z && npm run pub",
+    "x": "npm --no-git-tag-version version major",
+    "y": "npm --no-git-tag-version version minor",
+    "z": "npm --no-git-tag-version version patch",
+    "link": "npm link",
+    "unlink": "npm unlink",
+    "lint": "eslint src",
+    "fix": "npm run lint --fix"
+  },
+  "jest": {
+    "preset": "rollup-jest"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.10"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.12",
+    "@babel/preset-env": "^7.16.11",
+    "@rollup/plugin-alias": "^3.1.9",
+    "@rollup/plugin-babel": "^5.3.0",
+    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-eslint": "^8.0.1",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^13.1.3",
+    "@rollup/plugin-replace": "^3.0.1",
+    "eslint": "^8.8.0",
+    "jest": "^27.4.7",
+    "jsdom": "^19.0.0",
+    "lodash.merge": "^4.6.2",
+    "sass": "^1.49.9",
+    "postcss": "^8.4.5",
+    "postcss-cli": "^9.1.0",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.66.1",
+    "rollup-copy-plugin": "^0.1.0",
+    "rollup-jest": "^1.1.3",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-clear": "^2.0.7",
+    "rollup-plugin-copy": "^3.4.0",
+    "rollup-plugin-copy-assets": "^2.0.3",
+    "rollup-plugin-eslint": "^7.0.0",
+    "rollup-plugin-filesize": "^9.1.2",
+    "rollup-plugin-hash": "^1.3.0",
+    "rollup-plugin-livereload": "^2.0.5",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-sass": "^1.2.10",
+    "rollup-plugin-scss": "^3.0.0",
+    "rollup-plugin-serve": "^1.1.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-uglify": "^6.0.4",
+    "rollup-plugin-url": "^3.0.1"
+  },
+  "gitbook": {
+    "properties": {
+      "style": {
+        "type": "string",
+        "title": "[callout|flat] Style used for blockquote.",
+        "default": "callout"
+      },
+      "tag": {
+        "type": "object",
+        "title": "Configuration for alerts of type 'tag'",
+        "default": {
+          "label": "",
+          "labelVisible": "false",
+          "icon": "fa fa-tag ",
+          "className": "tag"
+        }
+      },
+      "tip": {
+        "type": "object",
+        "title": "Configuration for alerts of type 'tip'",
+        "default": {
+          "label": {
+            "en": "Tip",
+            "zh": "提示"
+          },
+          "icon": "fa fa-lightbulb-o",
+          "className": "tip"
+        }
+      },
+      "question": {
+        "type": "object",
+        "title": "Configuration for alerts of type 'info'",
+        "default": {
+          "label": {
+            "en": "Question",
+            "zh": "问题"
+          },
+          "icon": "fa fa-question-circle-o",
+          "className": "question"
+        }
+      },
+      "note": {
+        "type": "object",
+        "title": "Configuration for alerts of type 'info'",
+        "default": {
+          "label": {
+            "en": "Note",
+            "zh": "注意"
+          },
+          "icon": "fa fa-info-circle",
+          "className": "info"
+        }
+      },
+      "warning": {
+        "type": "object",
+        "title": "Configuration for alerts of type 'warning'",
+        "default": {
+          "label": {
+            "en": "Warning",
+            "zh": "警示"
+          },
+          "icon": "fa fa-warning",
+          "className": "warning"
+        }
+      },
+      "danger": {
+        "type": "object",
+        "title": "Configuration for alerts of type 'danger'",
+        "default": {
+          "label": {
+            "en": "Important",
+            "zh": "重要"
+          },
+          "icon": "fa fa-bolt",
+          "className": "danger"
+        }
+      }
+    }
+  }
+}
