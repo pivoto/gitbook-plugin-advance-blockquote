@@ -6,7 +6,8 @@ import babel from 'rollup-plugin-babel';
 import resolve from 'rollup-plugin-node-resolve';
 import url from "rollup-plugin-url";
 
-import {uglify} from 'rollup-plugin-uglify';
+import {terser} from 'rollup-plugin-terser';
+// import {uglify} from 'rollup-plugin-uglify';
 import {eslint} from 'rollup-plugin-eslint';
 
 import postcss from 'rollup-plugin-postcss'
@@ -43,7 +44,24 @@ const pluginSettings = {
 		include: ["**/*.svg"], // defaults to .svg, .png, .jpg and .gif files
 		emitFiles: true // defaults to true
 	},
-	uglify: {
+	terser: {
+		compress: {
+			dead_code: true,
+			drop_console: true,
+			drop_debugger: true
+		},
+		mangle: {
+			toplevel: true,
+			properties: {
+				regex: /^_/
+			}
+		},
+		output: {
+			beautify: false,
+			comments: 'some'
+		}
+	},
+	/*uglify: {
 		beautify: {
 			compress: false,
 			mangle: false,
@@ -59,7 +77,7 @@ const pluginSettings = {
 				comments: new RegExp(pkg.name)
 			}
 		}
-	}
+	}*/
 
 }
 
@@ -87,7 +105,8 @@ const indexCjs = merge({}, config, {
 		format: 'cjs'
 	},
 	plugins: [
-		uglify(pluginSettings.uglify.minify)
+		terser(pluginSettings.terser)
+		// uglify(pluginSettings.uglify.minify)
 	]
 })
 // const pluginCjs = merge({}, config, {
