@@ -1,6 +1,6 @@
 {
   "name": "gitbook-plugin-advance-blockquote",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "GitBook plugin",
   "author": "Qt",
   "license": "MIT",
@@ -105,7 +105,8 @@
         "default": {
           "label": {
             "en": "Tip",
-            "zh": "提示"
+            "zh": "提示",
+            "zh-hans": "提示"
           },
           "icon": "fa fa-lightbulb-o",
           "className": "tip"
@@ -117,7 +118,8 @@
         "default": {
           "label": {
             "en": "Question",
-            "zh": "问题"
+            "zh": "问题",
+            "zh-hans": "问题"
           },
           "icon": "fa fa-question-circle-o",
           "className": "question"
@@ -129,7 +131,8 @@
         "default": {
           "label": {
             "en": "Note",
-            "zh": "注意"
+            "zh": "注意",
+            "zh-hans": "注意"
           },
           "icon": "fa fa-info-circle",
           "className": "info"
@@ -141,7 +144,8 @@
         "default": {
           "label": {
             "en": "Warning",
-            "zh": "警示"
+            "zh": "警示",
+            "zh-hans": "警示"
           },
           "icon": "fa fa-warning",
           "className": "warning"
@@ -153,7 +157,8 @@
         "default": {
           "label": {
             "en": "Important",
-            "zh": "重要"
+            "zh": "重要",
+            "zh-hans": "重要"
           },
           "icon": "fa fa-bolt",
           "className": "danger"

@@ -12,5 +12,6 @@ module.exports = {
 	},
 	"plugins": [],
 	"rules": {
+		"no-unused-vars": "warn"
 	}
 };
